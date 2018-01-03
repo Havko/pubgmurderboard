@@ -2,7 +2,7 @@ import requests
 from bs4 import BeautifulSoup
 import json
 
-player = 'GhostRa1der'
+player = 'rrtrog1'
 url = "https://pubgtracker.com/profile/pc/" + player
 
 querystring = {"region":"agg"}
@@ -21,11 +21,11 @@ for script in scripts:
     if 'var playerData' in str(script.string):
         data = str(script.string)
 
-my_data = data.replace('var ', '')
+my_data = data.replace('var playerData = ', '')
 new_data = my_data.replace(';', '')
 null = None
 
-exec(new_data)
+playerData = json.loads(new_data)
 
 #print(playerData)
 total_kills = 0
