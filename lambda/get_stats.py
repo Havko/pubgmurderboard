@@ -25,7 +25,7 @@ def lambda_handler(event, context):
         my_data = data.decode("utf-8")
         my_data = json.loads(my_data)
         print(my_data)
-        stats = my_data['stats']
+        stats = my_data['Stats']
         
         for mode in stats:
             for reg_stats in mode['stats']:
