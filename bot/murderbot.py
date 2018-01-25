@@ -71,9 +71,9 @@ async def on_message(message):
         data = json.loads(data)
         data = sorted(data, key=lambda k: k['total_kills'], reverse=True) 
 
-        msg = "{0:<20} {1:>10}".format("Player ID", "Total Murders \n" + "-"*35+'\n')
+        msg = "{0:<15} {1:^15} {2:>15}".format("Player ID", "Total Murders", "Chicken Dinners \n" + "-"*50+'\n')
         for player in data:
-            msg += "{0:<20} {1:>10}".format(player['player_id'], str(int(player['total_kills'])))
+            msg += "{0:<17} {1:^10} {2:>10}".format(player['player_id'],str(int(player['total_kills'])), str(int(player['chicken_dinners'])))
             msg += '\n'
         msg = "```" + msg + "```"
         print(msg)
@@ -149,4 +149,4 @@ async def on_message(message):
         new_msg = drop_picker(location, vicinity)
         await client.send_message(message.channel, new_msg)        
 #bot token  required in following line, removed for security        
-client.run('Mzk3ODQ4MjM1NTk2ODQwOTcw.DS18kA.-kSJZY_iZCVhRkTmuZqmDI_qM1I')
+client.run('')
