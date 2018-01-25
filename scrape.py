@@ -2,7 +2,7 @@ import requests
 from bs4 import BeautifulSoup
 import json
 
-player = 'rrtrog1'
+player = 'nateofstate'
 url = "https://pubgtracker.com/profile/pc/" + player
 
 querystring = {"region":"agg"}
@@ -29,6 +29,7 @@ playerData = json.loads(new_data)
 
 #print(playerData)
 total_kills = 0
+chicken_dinners = 0
 stats = playerData['Stats']
 #print(stats)
 for season in stats:
@@ -40,10 +41,13 @@ for season in stats:
             if stat['label'] == 'Kills':
                 
                 total_kills += stat['ValueInt']
+            if stat['label'] == 'Wins':
+                chicken_dinners += stat['ValueInt']
             # for reg_stats in mode['Stats']:
             #     if reg_stats['label'] == 'Kills':
             #         total_kills += reg_stats['ValueInt']
 print(total_kills)
+print(chicken_dinners)
         # table.update_item(
         #     Key={
         #         'player_id': user
